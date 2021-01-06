@@ -17,4 +17,13 @@ public class BeerServiceImpl implements BeerService {
 				.beerStyle("Lager").build();
 	}
 
+	@Override
+	public BeerDto saveNewBeer(BeerDto beerDto) {
+		// TODO Auto-generated method stub
+		return BeerDto.builder()
+				.id(UUID.randomUUID())
+				.build();
+		
+	}
+
 }
