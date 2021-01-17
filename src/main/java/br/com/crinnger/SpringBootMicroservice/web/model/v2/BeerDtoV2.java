@@ -2,6 +2,7 @@ package br.com.crinnger.SpringBootMicroservice.web.model.v2;
 
 import java.util.UUID;
 
+import br.com.crinnger.SpringBootMicroservice.web.model.BeerStyleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data; 

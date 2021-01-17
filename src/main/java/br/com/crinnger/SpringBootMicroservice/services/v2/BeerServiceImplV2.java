@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.crinnger.SpringBootMicroservice.web.model.BeerStyleEnum;
 import br.com.crinnger.SpringBootMicroservice.web.model.v2.BeerDtoV2;
-import br.com.crinnger.SpringBootMicroservice.web.model.v2.BeerStyleEnum;
 import lombok.extern.slf4j.Slf4j;
 
 @Service 

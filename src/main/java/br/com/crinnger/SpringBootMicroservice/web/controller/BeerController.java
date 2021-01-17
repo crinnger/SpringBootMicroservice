@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.crinnger.SpringBootMicroservice.services.BeerService;
 import br.com.crinnger.SpringBootMicroservice.web.model.BeerDto;
 
-@Deprecated
 @RequestMapping("/api/v1/beer")
 @RestController
 public class BeerController {
