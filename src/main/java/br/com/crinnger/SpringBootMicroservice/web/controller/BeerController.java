@@ -1,6 +1,5 @@
 package br.com.crinnger.SpringBootMicroservice.web.controller;
 
-import java.awt.image.PixelGrabber;
 import java.util.UUID;
 
 import org.springframework.http.HttpHeaders;

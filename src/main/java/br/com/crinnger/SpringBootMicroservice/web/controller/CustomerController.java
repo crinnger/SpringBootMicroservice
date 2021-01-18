@@ -38,7 +38,7 @@ public class CustomerController {
 	public ResponseEntity<CustomerDto> handlePost(@RequestBody CustomerDto customerDto){
 		CustomerDto saveCustomer=this.customerService.saveCustomer(customerDto); 
 		HttpHeaders headers=new HttpHeaders();  
-		headers.add("Location", "/api/v1/customer/" + saveCustomer.getID()); 
+		headers.add("Location", "/api/v1/customer/" + saveCustomer.getID().toString()); 
 		return new ResponseEntity<CustomerDto>(headers,HttpStatus.CREATED); 
 	}
 	
@@ -48,7 +48,7 @@ public class CustomerController {
 		return new ResponseEntity<CustomerDto> (HttpStatus.NO_CONTENT);
 	}
 	
-	@DeleteMapping
+	@DeleteMapping({"/{customerID}"}) 
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteBeer(@PathVariable("customerID") UUID customerId) {
 		this.customerService.deleteByID(customerId); 

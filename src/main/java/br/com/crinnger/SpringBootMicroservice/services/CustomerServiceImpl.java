@@ -14,14 +14,17 @@ public class CustomerServiceImpl implements CustomerService{
 		// TODO Auto-generated method stub
 		return CustomerDto.builder()
 				.ID(id)
-				.name("Crinnger")
+				.name("Crinnger Get")
 				.build();
 	}
 
 	@Override
 	public CustomerDto saveCustomer(CustomerDto customerDto) {
 		// TODO Auto-generated method stub
-		return null;
+		return CustomerDto.builder()
+				.ID(UUID.randomUUID())
+				.name("Crinnger Save")
+				.build();
 	}
 
 	@Override

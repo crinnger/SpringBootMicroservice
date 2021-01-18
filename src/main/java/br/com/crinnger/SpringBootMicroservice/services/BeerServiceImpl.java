@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.crinnger.SpringBootMicroservice.web.model.BeerDto;
+import br.com.crinnger.SpringBootMicroservice.web.model.BeerStyleEnum;
 import lombok.extern.slf4j.Slf4j;
 
 @Service 
@@ -16,7 +17,7 @@ public class BeerServiceImpl implements BeerService {
 		// TODO Auto-generated method stub
 		return BeerDto.builder().id(UUID.randomUUID())
 				.beerName("Heineken")
-				.beerStyle("Lager").build();
+				.beerStyle(BeerStyleEnum.LAGER).build();
 	}
 
 	@Override
