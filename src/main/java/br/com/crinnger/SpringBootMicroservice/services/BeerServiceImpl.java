@@ -8,24 +8,26 @@ import br.com.crinnger.SpringBootMicroservice.web.model.BeerDto;
 import br.com.crinnger.SpringBootMicroservice.web.model.BeerStyleEnum;
 import lombok.extern.slf4j.Slf4j;
 
-@Service 
 @Slf4j
+@Service
 public class BeerServiceImpl implements BeerService {
 
 	@Override
 	public BeerDto getBeerByID(UUID beerId) {
 		// TODO Auto-generated method stub
-		return BeerDto.builder().id(UUID.randomUUID())
-				.beerName("Heineken")
-				.beerStyle(BeerStyleEnum.LAGER).build();
+		BeerDto beer= BeerDto.builder().id(UUID.randomUUID())
+		.beerName("Heineken")
+		.beerStyle(BeerStyleEnum.LAGER).build();
+		return beer;
 	}
 
 	@Override
 	public BeerDto saveNewBeer(BeerDto beerDto) {
 		// TODO Auto-generated method stub
-		return BeerDto.builder()
-				.id(UUID.randomUUID())
-				.build();
+		BeerDto beer= BeerDto.builder().id(UUID.randomUUID())
+		.beerName(beerDto.getBeerName())
+		.beerStyle(beerDto.getBeerStyle()).build();
+		return beer;
 		
 	}
 

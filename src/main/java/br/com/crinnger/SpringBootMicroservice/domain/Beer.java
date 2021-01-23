@@ -2,7 +2,7 @@ package br.com.crinnger.SpringBootMicroservice.domain;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.UUID;
+import java.util.UUID; 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +21,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@NoArgsConstructor 
 @AllArgsConstructor
 @Builder
 @Entity
@@ -48,8 +48,8 @@ public class Beer {
 	private Long upc;   
 	private BigDecimal price;
 	
-	private Integer minOnHand;
+	private Long minOnHand; 
 	
-	private Integer quantityToBrew;
+	private Long quantityToBrew; 
 	
 }

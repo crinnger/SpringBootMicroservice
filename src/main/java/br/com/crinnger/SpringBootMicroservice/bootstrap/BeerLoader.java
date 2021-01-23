@@ -29,14 +29,14 @@ public class BeerLoader implements CommandLineRunner {
 			this.beerRepository.save(Beer.builder()
 					.beerName("Bud")
 					.beerStyle(BeerStyleEnum.LAGER)
-					.quantityToBrew(200)
+					.quantityToBrew(200L)
 					.upc(4554545L)
 					.price(new BigDecimal("12.95"))
 					.build());
 			this.beerRepository.save(Beer.builder()
 					.beerName("heineken")
 					.beerStyle(BeerStyleEnum.LAGER)
-					.quantityToBrew(100)
+					.quantityToBrew(100L)
 					.upc(4554546L)
 					.price(new BigDecimal("15"))
 					.build());

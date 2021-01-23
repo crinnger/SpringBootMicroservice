@@ -13,7 +13,7 @@ public class CustomerServiceImpl implements CustomerService{
 	public CustomerDto getCustomerById(UUID id) {
 		// TODO Auto-generated method stub
 		return CustomerDto.builder()
-				.ID(id)
+				.id(id)
 				.name("Crinnger Get")
 				.build();
 	}
@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService{
 	public CustomerDto saveCustomer(CustomerDto customerDto) {
 		// TODO Auto-generated method stub
 		return CustomerDto.builder()
-				.ID(UUID.randomUUID())
+				.id(UUID.randomUUID())
 				.name("Crinnger Save")
 				.build();
 	}

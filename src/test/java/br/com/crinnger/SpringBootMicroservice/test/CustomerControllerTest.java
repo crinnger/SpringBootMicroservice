@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -15,6 +16,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.crinnger.SpringBootMicroservice.services.CustomerService;
 import br.com.crinnger.SpringBootMicroservice.web.controller.CustomerController;
 import br.com.crinnger.SpringBootMicroservice.web.model.CustomerDto;
 
@@ -26,6 +28,9 @@ class CustomerControllerTest {
 	
 	@Autowired
 	ObjectMapper objectMapper;
+	
+	@MockBean
+	CustomerService customerService;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
