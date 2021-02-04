@@ -28,4 +28,9 @@ public class CustomExceptionHandler {
 	public ResponseEntity<List> handleBindException(BindException ex){
 		return new ResponseEntity(ex.getAllErrors(),HttpStatus.BAD_REQUEST);
 	}
+	
+	@ExceptionHandler(NotFoundException.class)
+	public ResponseEntity<List> notFoundHandler(NotFoundException e){
+		return new ResponseEntity(e.getCause(),HttpStatus.I_AM_A_TEAPOT); 
+	}
 }

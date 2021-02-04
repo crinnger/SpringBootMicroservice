@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import br.com.crinnger.SpringBootMicroservice.web.model.CustomerDto;
+import br.com.crinnger.SpringBootMicroservice.model.CustomerDto;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{

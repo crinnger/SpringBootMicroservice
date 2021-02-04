@@ -1,4 +1,4 @@
-package br.com.crinnger.SpringBootMicroservice.web.controller;
+package br.com.crinnger.SpringBootMicroservice.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +25,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.crinnger.SpringBootMicroservice.model.BeerDto;
+import br.com.crinnger.SpringBootMicroservice.model.CustomerDto;
 import br.com.crinnger.SpringBootMicroservice.services.CustomerService;
-import br.com.crinnger.SpringBootMicroservice.web.model.BeerDto;
-import br.com.crinnger.SpringBootMicroservice.web.model.CustomerDto;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @Validated
 @RequestMapping("/api/v1/customer")
+@Api(tags = "Customer")
 @RestController
 public class CustomerController {
 	private final CustomerService customerService;
@@ -40,11 +43,13 @@ public class CustomerController {
 	}
 	
 	@GetMapping({"/{customerID}"})
+	@ApiOperation("Get Customer")
 	public ResponseEntity<CustomerDto> getCustomer(@NotNull @PathVariable("customerID") UUID customerId){
 		return new ResponseEntity<>(this.customerService.getCustomerById(customerId),HttpStatus.OK); 
 	}
 	
 	@PostMapping
+	@ApiOperation("New Customer")
 	public ResponseEntity<CustomerDto> handlePost(@NotNull @Valid @RequestBody CustomerDto customerDto){
 		CustomerDto saveCustomer=this.customerService.saveCustomer(customerDto); 
 		HttpHeaders headers=new HttpHeaders();  
@@ -53,6 +58,7 @@ public class CustomerController {
 	}
 	
 	@PutMapping({"/{customerID}"})
+	@ApiOperation("Update Customer")
 	public ResponseEntity<CustomerDto> executarPut(@NotNull  @PathVariable("customerID") UUID customerId,@Valid @RequestBody CustomerDto customerDto){
 		this.customerService.updateCustomer(customerId,customerDto);
 		return new ResponseEntity<CustomerDto> (HttpStatus.NO_CONTENT);
@@ -60,6 +66,7 @@ public class CustomerController {
 	
 	@DeleteMapping({"/{customerID}"}) 
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ApiOperation("Delete Customer")
 	public void deleteBeer(@NotNull  @PathVariable("customerID") UUID customerId) {
 		this.customerService.deleteByID(customerId); 
 	}

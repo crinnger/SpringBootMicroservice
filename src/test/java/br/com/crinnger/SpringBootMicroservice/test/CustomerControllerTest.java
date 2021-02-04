@@ -16,9 +16,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.crinnger.SpringBootMicroservice.controller.CustomerController;
+import br.com.crinnger.SpringBootMicroservice.model.CustomerDto;
 import br.com.crinnger.SpringBootMicroservice.services.CustomerService;
-import br.com.crinnger.SpringBootMicroservice.web.controller.CustomerController;
-import br.com.crinnger.SpringBootMicroservice.web.model.CustomerDto;
 
 @WebMvcTest(CustomerController.class)
 class CustomerControllerTest {

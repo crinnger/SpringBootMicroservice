@@ -1,4 +1,4 @@
-package br.com.crinnger.SpringBootMicroservice.web.controller.v2;
+package br.com.crinnger.SpringBootMicroservice.controller.v2;
 
 import java.awt.image.PixelGrabber;
 import java.util.UUID;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.crinnger.SpringBootMicroservice.model.BeerDto;
+import br.com.crinnger.SpringBootMicroservice.model.v2.BeerDtoV2;
 import br.com.crinnger.SpringBootMicroservice.services.BeerService;
 import br.com.crinnger.SpringBootMicroservice.services.v2.BeerServiceV2;
-import br.com.crinnger.SpringBootMicroservice.web.model.BeerDto;
-import br.com.crinnger.SpringBootMicroservice.web.model.v2.BeerDtoV2;
 
 @RequestMapping("/api/v2/beer")
 @RestController

@@ -2,7 +2,7 @@ package br.com.crinnger.SpringBootMicroservice.services.v2;
 
 import java.util.UUID;
 
-import br.com.crinnger.SpringBootMicroservice.web.model.v2.BeerDtoV2;
+import br.com.crinnger.SpringBootMicroservice.model.v2.BeerDtoV2;
 
 public interface BeerServiceV2 {
 	BeerDtoV2 getBeerByID(UUID beerId);
