@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 public class Beer {
 	@Id
 	@GeneratedValue(generator="UUID") 
-	@Type(type="uuid-char")
+	@Type(type="org.hibernate.type.UUIDCharType")
 	@GenericGenerator(name="UUID", strategy = "org.hibernate.id.UUIDGenerator")
 	@Column(length = 36, columnDefinition = "varchar(36)", updatable = false,nullable = false)
 	private UUID id;

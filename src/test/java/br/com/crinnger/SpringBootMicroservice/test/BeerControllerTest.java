@@ -79,6 +79,7 @@ class BeerControllerTest {
 		
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/beer/")
 				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON)
 				.content(json))
 				.andExpect(MockMvcResultMatchers.status().isCreated());	
 	}

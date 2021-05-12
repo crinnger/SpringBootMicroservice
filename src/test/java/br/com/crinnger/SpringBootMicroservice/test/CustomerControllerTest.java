@@ -1,9 +1,16 @@
 package br.com.crinnger.SpringBootMicroservice.test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
 
+import java.util.Optional;
 import java.util.UUID;
 
+import br.com.crinnger.SpringBootMicroservice.domain.Beer;
+import br.com.crinnger.SpringBootMicroservice.domain.Customer;
+import br.com.crinnger.SpringBootMicroservice.repositories.BeerRepository;
+import br.com.crinnger.SpringBootMicroservice.repositories.CustomerRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +32,15 @@ class CustomerControllerTest {
 
 	@Autowired
 	MockMvc mockMvc;
-	
+
 	@Autowired
 	ObjectMapper objectMapper;
-	
+
 	@MockBean
 	CustomerService customerService;
+
+	@MockBean
+	CustomerRepository customerRepository;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -38,6 +48,7 @@ class CustomerControllerTest {
 
 	@Test
 	void testGetCustomer() throws Exception{
+		given(customerRepository.findById(any())).willReturn(Optional.of(Customer.builder().build()));
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/customer/" + UUID.randomUUID().toString())
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(MockMvcResultMatchers.status().isOk());
@@ -45,7 +56,10 @@ class CustomerControllerTest {
 
 	@Test
 	void testHandlePost() throws Exception{
-		CustomerDto customer=CustomerDto.builder().build();
+		CustomerDto customer=CustomerDto.builder()
+				.id(UUID.randomUUID())
+				.name("crinnger")
+				.build();
 		
 		String json=this.objectMapper.writeValueAsString(customer);
 		
@@ -57,7 +71,10 @@ class CustomerControllerTest {
 
 	@Test
 	void testExecutarPut() throws Exception{
-		CustomerDto customer=CustomerDto.builder().build();
+		CustomerDto customer=CustomerDto.builder()
+				.id(UUID.randomUUID())
+				.name("crinnger")
+				.build();
 		
 		String json=this.objectMapper.writeValueAsString(customer);
 		
@@ -69,6 +86,7 @@ class CustomerControllerTest {
 
 	@Test
 	void testDeleteBeer() throws Exception{
+		given(customerRepository.findById(any())).willReturn(Optional.of(Customer.builder().build()));
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/customer/"+ UUID.randomUUID().toString()))
 				.andExpect(MockMvcResultMatchers.status().isNoContent());
 	}

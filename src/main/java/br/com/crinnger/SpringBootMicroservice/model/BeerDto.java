@@ -1,5 +1,6 @@
 package br.com.crinnger.SpringBootMicroservice.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -34,9 +35,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerDto {
+public class BeerDto implements Serializable {
+
+	static final long serialVersionUID = 4026496681017885886L;
 	
-//	@JsonProperty("beerId")
+	@JsonProperty("id")
 	@Null
 	private UUID id;
 	
@@ -69,8 +72,10 @@ public class BeerDto {
 	
 	private Long minOnHand; 
 	
-	private Long quantityToBrew; 
-	
+	private Long quantityToBrew;
+
+	private Integer quantityOnHand;
+
 //	@JsonSerialize(using=LocalDateSerializer.class)
 //	@JsonDeserialize(using=LocalDateDeserializer.class)
 //	private LocalDate localDate; 

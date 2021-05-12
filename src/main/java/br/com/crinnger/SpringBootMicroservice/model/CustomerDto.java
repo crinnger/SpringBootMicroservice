@@ -1,5 +1,6 @@
 package br.com.crinnger.SpringBootMicroservice.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -20,7 +21,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerDto {
+public class CustomerDto implements Serializable {
+
+	static final long serialVersionUID = 7238152495904312351L;
+
 	@NotNull	
 	private UUID id;
 	

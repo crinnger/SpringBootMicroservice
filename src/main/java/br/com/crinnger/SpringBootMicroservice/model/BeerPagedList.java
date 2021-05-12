@@ -1,5 +1,6 @@
 package br.com.crinnger.SpringBootMicroservice.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
@@ -10,7 +11,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 
-public class BeerPagedList extends PageImpl<BeerDto>{
+public class BeerPagedList extends PageImpl<BeerDto> implements Serializable {
+
+	static final long serialVersionUID = 7474041525410297012L;
 
     @JsonCreator(mode = JsonCreator.Mode.PROPERTIES)
     public BeerPagedList(@JsonProperty("content") List<BeerDto> content,
